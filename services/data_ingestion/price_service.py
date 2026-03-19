@@ -1,5 +1,6 @@
 import yfinance as yf
-from datetime import datetime
+from datetime import datetime, timezone
+
 
 class PriceService:
 
@@ -11,10 +12,16 @@ class PriceService:
             if data.empty:
                 return None
 
+            latest = data.iloc[-1]
+
             return {
                 "ticker": ticker,
-                "price": float(data["Close"].iloc[-1]),
-                "timestamp": datetime.timezone.utc()
+                "price":  float(latest["Close"]),
+                "open":   float(latest["Open"]),
+                "high":   float(latest["High"]),
+                "low":    float(latest["Low"]),
+                "volume": int(latest["Volume"]),
+                "timestamp": datetime.now(timezone.utc).isoformat()  # BUG FIX
             }
 
         except Exception as e:
