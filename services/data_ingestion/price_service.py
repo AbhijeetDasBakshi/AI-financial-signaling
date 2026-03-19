@@ -14,7 +14,7 @@ class PriceService:
             return {
                 "ticker": ticker,
                 "price": float(data["Close"].iloc[-1]),
-                "timestamp": datetime.utcnow()
+                "timestamp": datetime.timezone.utc()
             }
 
         except Exception as e:

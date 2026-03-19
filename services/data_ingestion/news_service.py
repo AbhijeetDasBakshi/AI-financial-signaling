@@ -84,7 +84,7 @@ class NewsService:
                     "source": article.get("source_id"),
                     "url": article.get("link"),
                     "published_at": article.get("pubDate"),
-                    "timestamp": datetime.utcnow().isoformat()
+                    "timestamp": datetime.timezone.utc().isoformat()
                 })
 
             # 5. Save locally (IMPORTANT)
