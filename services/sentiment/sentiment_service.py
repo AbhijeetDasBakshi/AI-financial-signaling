@@ -18,13 +18,8 @@ class SentimentService:
         return score["compound"]
 
     def analyze_article(self, article: Dict) -> Dict:
-        """
-        Adds sentiment score to a single article
-        """
         title = article.get("title", "")
-        sentiment = self.analyze_text(title)
-
-        article["sentiment"] = sentiment
+        article["sentiment"] = self.analyze_text(title)  # always re-score
         return article
 
     def analyze_batch(self, articles: List[Dict]) -> List[Dict]:
