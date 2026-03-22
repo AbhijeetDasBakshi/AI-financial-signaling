@@ -1,0 +1,240 @@
+[
+    {
+        "ticker": "APPL",
+        "title": "Iran War Threatens AI Chip Supply as Critical Minerals at Risk",
+        "source": "morningstar_com",
+        "url": "https://www.morningstar.com/stocks/iran-war-threatens-ai-chip-supply-critical-minerals-risk",
+        "published_at": "2026-03-21 08:00:00",
+        "raw_json": {
+            "article_id": "9e9736e3d1960a3d16c2cd9c289238fc",
+            "link": "https://www.morningstar.com/stocks/iran-war-threatens-ai-chip-supply-critical-minerals-risk",
+            "title": "Iran War Threatens AI Chip Supply as Critical Minerals at Risk",
+            "description": "Iran war threatens semiconductor supply as key materials like helium and aluminum face disruption. What it means for AI and Big Tech.",
+            "content": "ONLY AVAILABLE IN PAID PLANS",
+            "keywords": null,
+            "creator": [
+                "karen gilchrist"
+            ],
+            "language": "english",
+            "country": [
+                "united states of america"
+            ],
+            "category": [
+                "top"
+            ],
+            "datatype": "news",
+            "pubDate": "2026-03-21 08:00:00",
+            "pubDateTZ": "UTC",
+            "fetched_at": "2026-03-21 08:31:46",
+            "image_url": "https://media.morningstar.com/resizer/v2/CFB4Y3LIQVHYNLC5YMBNJR2OEY.png?auth=815da8bce85ddc527c5344a2126a3a7b8c92a8227d059935395ebf9554607ba3&smart=true&height=500",
+            "video_url": null,
+            "source_id": "morningstar_com",
+            "source_name": "Morningstar",
+            "source_priority": 1430,
+            "source_url": "https://www.morningstar.com",
+            "source_icon": "https://n.bytvi.com/morningstar_com.png",
+            "sentiment": "ONLY AVAILABLE IN PROFESSIONAL AND CORPORATE PLANS",
+            "sentiment_stats": "ONLY AVAILABLE IN PROFESSIONAL AND CORPORATE PLANS",
+            "ai_tag": "ONLY AVAILABLE IN PROFESSIONAL AND CORPORATE PLANS",
+            "ai_region": "ONLY AVAILABLE IN CORPORATE PLANS",
+            "ai_org": "ONLY AVAILABLE IN CORPORATE PLANS",
+            "ai_summary": "ONLY AVAILABLE IN PAID PLANS",
+            "duplicate": false
+        },
+        "timestamp": "2026-03-22T07:48:55.645361+00:00"
+    },
+    {
+        "ticker": "APPL",
+        "title": "76 Million Freelancers Face Stricter Income Verification Ahead of April 15 Deadline",
+        "source": "openpr",
+        "url": "https://www.openpr.com/news/4433755/76-million-freelancers-face-stricter-income-verification-ahead",
+        "published_at": "2026-03-20 23:14:04",
+        "raw_json": {
+            "article_id": "256a99769da50179dc85b9c9fe0eb07a",
+            "link": "https://www.openpr.com/news/4433755/76-million-freelancers-face-stricter-income-verification-ahead",
+            "title": "76 Million Freelancers Face Stricter Income Verification Ahead of April 15 Deadline",
+            "description": "Growing documentation requirements from lenders, landlords, and agencies drive increased need for fast, compliant income verification solutions. Image: https://www.abnewswire.com/upload/2026/03/a8b3d80567409ff7108decde9c071359.jpg Sheridan, WY, USA - PayStubs.net [https://www.paystubs.net/], a U.S.-based online pay documentation platform, reports a significant rise in demand for professional income verification tools",
+            "content": "ONLY AVAILABLE IN PAID PLANS",
+            "keywords": [
+                "presses release",
+                "media release",
+                "publicity",
+                "pr",
+                "pressreleases",
+                "advertising",
+                "marketing",
+                "pr service",
+                "public relations",
+                "pr strategy",
+                "news release",
+                "pr marketing"
+            ],
+            "creator": [
+                "abnewswire"
+            ],
+            "language": "english",
+            "country": [
+                "germany"
+            ],
+            "category": [
+                "business"
+            ],
+            "datatype": "news",
+            "pubDate": "2026-03-20 23:14:04",
+            "pubDateTZ": "UTC",
+            "fetched_at": "2026-03-21 04:07:05",
+            "image_url": "https://cdn.open-pr.com/3/2/321308769_g.jpg",
+            "video_url": null,
+            "source_id": "openpr",
+            "source_name": "Openpr.com",
+            "source_priority": 31972,
+            "source_url": "https://www.openpr.com",
+            "source_icon": "https://n.bytvi.com/openpr.png",
+            "sentiment": "ONLY AVAILABLE IN PROFESSIONAL AND CORPORATE PLANS",
+            "sentiment_stats": "ONLY AVAILABLE IN PROFESSIONAL AND CORPORATE PLANS",
+            "ai_tag": "ONLY AVAILABLE IN PROFESSIONAL AND CORPORATE PLANS",
+            "ai_region": "ONLY AVAILABLE IN CORPORATE PLANS",
+            "ai_org": "ONLY AVAILABLE IN CORPORATE PLANS",
+            "ai_summary": "ONLY AVAILABLE IN PAID PLANS",
+            "duplicate": true
+        },
+        "timestamp": "2026-03-22T07:48:55.645411+00:00"
+    },
+    {
+        "ticker": "APPL",
+        "title": "Why Your AI Doesn\u2019t Need the Cloud to Run Faster Anymore",
+        "source": "hackernoon",
+        "url": "https://hackernoon.com/why-your-ai-doesnt-need-the-cloud-to-run-faster-anymore",
+        "published_at": "2026-03-20 20:07:57",
+        "raw_json": {
+            "article_id": "b644fda7495e76b893282ab3eee75021",
+            "link": "https://hackernoon.com/why-your-ai-doesnt-need-the-cloud-to-run-faster-anymore",
+            "title": "Why Your AI Doesn\u2019t Need the Cloud to Run Faster Anymore",
+            "description": "This paper shows how to speed up AI on edge devices by splitting neural networks across multiple machines instead of relying on the cloud. It introduces a method to predict delays, optimize performance, and determine when this approach actually works. The result: faster, more private AI with better throughput in real-time applications like video and IoT systems.",
+            "content": "ONLY AVAILABLE IN PAID PLANS",
+            "keywords": null,
+            "creator": [
+                "cisco systems"
+            ],
+            "language": "english",
+            "country": [
+                "united states of america"
+            ],
+            "category": [
+                "technology"
+            ],
+            "datatype": "news",
+            "pubDate": "2026-03-20 20:07:57",
+            "pubDateTZ": "UTC",
+            "fetched_at": "2026-03-20 22:31:47",
+            "image_url": "https://hackernoon.imgix.net/images/why-your-ai-doesnt-need-the-cloud-to-run-faster-anymore-aj1exz45cfbk1vym3aljdfb4.png",
+            "video_url": null,
+            "source_id": "hackernoon",
+            "source_name": "Hackernoon",
+            "source_priority": 9198,
+            "source_url": "https://hackernoon.com",
+            "source_icon": "https://n.bytvi.com/hackernoon.png",
+            "sentiment": "ONLY AVAILABLE IN PROFESSIONAL AND CORPORATE PLANS",
+            "sentiment_stats": "ONLY AVAILABLE IN PROFESSIONAL AND CORPORATE PLANS",
+            "ai_tag": "ONLY AVAILABLE IN PROFESSIONAL AND CORPORATE PLANS",
+            "ai_region": "ONLY AVAILABLE IN CORPORATE PLANS",
+            "ai_org": "ONLY AVAILABLE IN CORPORATE PLANS",
+            "ai_summary": "ONLY AVAILABLE IN PAID PLANS",
+            "duplicate": false
+        },
+        "timestamp": "2026-03-22T07:48:55.645433+00:00"
+    },
+    {
+        "ticker": "APPL",
+        "title": "AI Maps 13 Million Buildings in One of the World\u2019s Most Remote Regions",
+        "source": "hackernoon",
+        "url": "https://hackernoon.com/ai-maps-13-million-buildings-in-one-of-the-worlds-most-remote-regions",
+        "published_at": "2026-03-20 19:04:13",
+        "raw_json": {
+            "article_id": "4c69effd60cfa8962b5eedf06f47af54",
+            "link": "https://hackernoon.com/ai-maps-13-million-buildings-in-one-of-the-worlds-most-remote-regions",
+            "title": "AI Maps 13 Million Buildings in One of the World\u2019s Most Remote Regions",
+            "description": "Researchers created the first high-resolution map of over 13 million buildings across the Qinghai-Tibetan Plateau using satellite imagery and AI. Despite extreme terrain and sparse data, the model achieved strong accuracy, helping reveal human settlement patterns. The dataset can support disaster risk analysis, urban planning, and renewable energy development in one of the world\u2019s hardest-to-map regions.",
+            "content": "ONLY AVAILABLE IN PAID PLANS",
+            "keywords": null,
+            "creator": [
+                "alibaba"
+            ],
+            "language": "english",
+            "country": [
+                "united states of america"
+            ],
+            "category": [
+                "technology"
+            ],
+            "datatype": "news",
+            "pubDate": "2026-03-20 19:04:13",
+            "pubDateTZ": "UTC",
+            "fetched_at": "2026-03-20 22:31:47",
+            "image_url": "https://hackernoon.imgix.net/images/how-ai-used-satellite-images-to-reveal-hidden-settlements-in-the-himalayas-tylzkf3zq3r7ldayqy9kz7lq.png",
+            "video_url": null,
+            "source_id": "hackernoon",
+            "source_name": "Hackernoon",
+            "source_priority": 9198,
+            "source_url": "https://hackernoon.com",
+            "source_icon": "https://n.bytvi.com/hackernoon.png",
+            "sentiment": "ONLY AVAILABLE IN PROFESSIONAL AND CORPORATE PLANS",
+            "sentiment_stats": "ONLY AVAILABLE IN PROFESSIONAL AND CORPORATE PLANS",
+            "ai_tag": "ONLY AVAILABLE IN PROFESSIONAL AND CORPORATE PLANS",
+            "ai_region": "ONLY AVAILABLE IN CORPORATE PLANS",
+            "ai_org": "ONLY AVAILABLE IN CORPORATE PLANS",
+            "ai_summary": "ONLY AVAILABLE IN PAID PLANS",
+            "duplicate": false
+        },
+        "timestamp": "2026-03-22T07:48:55.645449+00:00"
+    },
+    {
+        "ticker": "APPL",
+        "title": "Coinbase Launches 24/7 Perpetual Futures Trading for Major U.S. Stocks and ETFs",
+        "source": "yahoo",
+        "url": "https://finance.yahoo.com/markets/crypto/articles/coinbase-launches-24-7-perpetual-185238663.html",
+        "published_at": "2026-03-20 18:52:38",
+        "raw_json": {
+            "article_id": "75bbdbaff7cbc07c0d447ea05ae13f5e",
+            "link": "https://finance.yahoo.com/markets/crypto/articles/coinbase-launches-24-7-perpetual-185238663.html",
+            "title": "Coinbase Launches 24/7 Perpetual Futures Trading for Major U.S. Stocks and ETFs",
+            "description": "Coinbase International customers can now ape stock-linked perpetual futures with up to 20x leverage at any time.",
+            "content": "ONLY AVAILABLE IN PAID PLANS",
+            "keywords": [
+                "perpetual futures",
+                "american markets",
+                "coinbase",
+                "coinbase stock"
+            ],
+            "creator": [
+                "jack inabinet"
+            ],
+            "language": "english",
+            "country": [
+                "india"
+            ],
+            "category": [
+                "business"
+            ],
+            "datatype": "news",
+            "pubDate": "2026-03-20 18:52:38",
+            "pubDateTZ": "UTC",
+            "fetched_at": "2026-03-22 01:31:00",
+            "image_url": null,
+            "video_url": null,
+            "source_id": "yahoo",
+            "source_name": "Yahoo! News",
+            "source_priority": 17,
+            "source_url": "https://news.yahoo.com",
+            "source_icon": "https://n.bytvi.com/yahoo.png",
+            "sentiment": "ONLY AVAILABLE IN PROFESSIONAL AND CORPORATE PLANS",
+            "sentiment_stats": "ONLY AVAILABLE IN PROFESSIONAL AND CORPORATE PLANS",
+            "ai_tag": "ONLY AVAILABLE IN PROFESSIONAL AND CORPORATE PLANS",
+            "ai_region": "ONLY AVAILABLE IN CORPORATE PLANS",
+            "ai_org": "ONLY AVAILABLE IN CORPORATE PLANS",
+            "ai_summary": "ONLY AVAILABLE IN PAID PLANS",
+            "duplicate": false
+        },
+        "timestamp": "2026-03-22T07:48:55.645541+00:00"
+    }
+]
