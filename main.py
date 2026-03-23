@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from api.routes import price, news, ingest, analyze, etl
+from api.routes import price, news, ingest, analyze, etl, signal, portfolio
 
 app = FastAPI(
     title="Financial Signaling API",
@@ -13,7 +13,8 @@ app.include_router(news.router)
 app.include_router(ingest.router)
 app.include_router(analyze.router)
 app.include_router(etl.router)
-
+app.include_router(signal.router)
+app.include_router(portfolio.router)
 
 @app.get("/")
 def root():
