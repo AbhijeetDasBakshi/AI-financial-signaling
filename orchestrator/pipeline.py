@@ -1,5 +1,5 @@
 """
-Orchestrator Pipeline — Layer 5 Upgraded.
+Orchestrator Pipeline — Layer 5 + 5b
 Runs full pipeline per ticker:
 1. Fetch + store price + news
 2. ETL transform
@@ -8,6 +8,7 @@ Runs full pipeline per ticker:
 5. Combined confidence scoring
 6. Support/resistance price targets
 7. LLM explanation
+8. Backtesting summary (optional — controlled by run_backtest flag)
 """
 from sqlalchemy.orm import Session
 from api.controllers import price_controller, news_controller
@@ -20,13 +21,33 @@ from services.signal_engine.ml_engine import train_and_predict
 from services.signal_engine.confidence_engine import compute_combined_signal
 from services.signal_engine.price_target import compute_price_targets
 from services.signal_engine.llm_engine import get_llm_explanation
+from backtesting.report import generate_report as run_backtest_report
 import os
 
-ML_HISTORY_PERIOD = os.getenv("ML_HISTORY_PERIOD", "6mo")
+ML_HISTORY_PERIOD  = os.getenv("ML_HISTORY_PERIOD", "6mo")
+BACKTEST_PERIOD    = os.getenv("BACKTEST_PERIOD", "6mo")
+
+# Controls whether /analyze runs backtesting automatically.
+# Set BACKTEST_ON_ANALYZE=false in .env to skip (speeds up response).
+BACKTEST_ON_ANALYZE = os.getenv("BACKTEST_ON_ANALYZE", "true").lower() == "true"
 
 
-def run_pipeline(ticker: str, db: Session, explain: bool = True) -> dict:
+def run_pipeline(ticker: str, db: Session, explain: bool = True, run_backtest: bool = None) -> dict:
+    """
+    Full analysis pipeline.
+
+    Args:
+        ticker:        Stock symbol
+        db:            SQLAlchemy session
+        explain:       Whether to run LLM explanation (default True)
+        run_backtest:  Whether to include backtest summary.
+                       Defaults to BACKTEST_ON_ANALYZE env var.
+                       Pass True/False explicitly to override.
+    """
     ticker = ticker.upper()
+
+    # Resolve backtest flag
+    should_backtest = run_backtest if run_backtest is not None else BACKTEST_ON_ANALYZE
 
     # ─── 1. Fetch + Store Price + News ───────────────────────
     price_record = price_controller.fetch_and_store_price(ticker, db)
@@ -74,21 +95,18 @@ def run_pipeline(ticker: str, db: Session, explain: bool = True) -> dict:
 
     # ─── 6. Combined confidence ───────────────────────────────
     rule_clean = {
-        "signal": rule_data["signal"],
+        "signal":     rule_data["signal"],
         "confidence": rule_data["confidence"]
     }
-
     ml_clean = {
-        "signal": ml_result.get("ml_signal", "INSUFFICIENT_DATA"),
+        "signal":     ml_result.get("ml_signal", "INSUFFICIENT_DATA"),
         "confidence": ml_result.get("ml_confidence", 0.5),
-        "accuracy": ml_result.get("ml_accuracy"),
+        "accuracy":   ml_result.get("ml_accuracy"),
     }
-
     combined = compute_combined_signal(rule_clean, ml_clean)
 
     # ─── 7. Price targets ─────────────────────────────────────
     current_price = price_data["price"] if price_data else None
-
     targets = compute_price_targets(hist_records, current_price) if hist_records and current_price else None
 
     # ─── 8. LLM explanation ───────────────────────────────────
@@ -99,13 +117,44 @@ def run_pipeline(ticker: str, db: Session, explain: bool = True) -> dict:
             ticker,
             {
                 **rule_data,
-                "signal": combined["signal"],          
-                "confidence": combined["confidence"],  
+                "signal":     combined["signal"],
+                "confidence": combined["confidence"],
             },
             headlines
         )
 
-    # ─── 9. Final response ────────────────────────────────────
+    # ─── 9. Backtesting summary ───────────────────────────────
+    backtest_summary = None
+    if should_backtest:
+        try:
+            print(f"[Orchestrator] Running backtest for {ticker} | period={BACKTEST_PERIOD}")
+            backtest_full = run_backtest_report(
+                ticker=ticker,
+                period=BACKTEST_PERIOD,
+                include_log=False,          # keep response lean — use GET /backtest/?include_log=true for full log
+                sentiment=avg_sentiment or 0.0,
+            )
+            # Surface a tight summary in the main /analyze response
+            backtest_summary = {
+                "win_rate":        backtest_full.get("win_rate"),
+                "total_return":    backtest_full.get("total_return"),
+                "sharpe_ratio":    backtest_full.get("sharpe_ratio"),
+                "max_drawdown":    backtest_full.get("max_drawdown"),
+                "signals_tested":  backtest_full.get("signals_tested"),
+                "total_trades":    backtest_full.get("total_trades"),
+                "ml_accuracy_avg": backtest_full.get("ml_accuracy_avg"),
+                "best_rule":       backtest_full.get("best_rule"),
+                "worst_rule":      backtest_full.get("worst_rule"),
+                "ml_accuracy_note": backtest_full.get("ml_accuracy_note"),
+                "period":          BACKTEST_PERIOD,
+                # Link the caller to the full endpoint
+                "full_report_url": f"/backtest/?ticker={ticker}&period={BACKTEST_PERIOD}&include_log=true",
+            }
+        except Exception as e:
+            print(f"[Orchestrator] Backtest failed (non-fatal): {e}")
+            backtest_summary = {"error": str(e), "status": "failed"}
+
+    # ─── 10. Final response ───────────────────────────────────
     return {
         "ticker":           ticker,
         "price":            price_data,
@@ -113,7 +162,7 @@ def run_pipeline(ticker: str, db: Session, explain: bool = True) -> dict:
         "news_stored":      news_fetch.get("stored", 0),
         "average_sentiment": avg_sentiment,
 
-        # Signal
+        # Live signal
         "signal":           combined["signal"],
         "confidence":       combined["confidence"],
         "signals_agree":    combined["agreement"],
@@ -126,11 +175,11 @@ def run_pipeline(ticker: str, db: Session, explain: bool = True) -> dict:
         "reasons":          rule_data["reasons"],
 
         # ML
-        "ml_signal":        ml_result.get("ml_signal"),
-        "ml_confidence":    ml_result.get("ml_confidence"),
-        "ml_accuracy":      ml_result.get("ml_accuracy"),
-        "ml_model":         ml_result.get("ml_model"),
-        "feature_importance": ml_result.get("feature_importance", {}),
+        "ml_signal":           ml_result.get("ml_signal"),
+        "ml_confidence":       ml_result.get("ml_confidence"),
+        "ml_accuracy":         ml_result.get("ml_accuracy"),
+        "ml_model":            ml_result.get("ml_model"),
+        "feature_importance":  ml_result.get("feature_importance", {}),
 
         # Price targets
         "price_targets":    targets,
@@ -139,4 +188,7 @@ def run_pipeline(ticker: str, db: Session, explain: bool = True) -> dict:
         "explanation":      explanation,
         "etl_ran":          True,
         "articles_sample":  articles[:3],
+
+        # Backtest (None if BACKTEST_ON_ANALYZE=false or run_backtest=False)
+        "backtest_summary": backtest_summary,
     }
