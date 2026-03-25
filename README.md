@@ -1,2 +1,2 @@
-# financial-signaling
-Financial Signaling : End-to-end ETL pipeline for real-time stock analysis and buy/sell signal generation using Python, FastAPI, MongoDB, PostgreSQL, Redis, Docker and AWS S3.
+# AI-financial-signaling
+AI enabled Financial Signaling : End-to-end ETL pipeline orchestration for real-time stock analysis and buy, sell & hold signal generation using LLM APIs , ML, Python, FastAPI, MongoDB, PostgreSQL, Redis, Docker and AWS S3.
